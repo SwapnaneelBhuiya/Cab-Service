@@ -28,7 +28,7 @@ public class InvoiceServiceTest {
         InvoiceGeneratorService invoiceGeneratorService=new InvoiceGeneratorService();
         double distance =0.1;
         int time =1;
-        Ride[] rides={new Ride("Pass1",2.0,5),new Ride("Pass2",0.1,1)};
+        Ride[] rides={new Ride("Pass1",2.0,5,'N'),new Ride("Pass2",0.1,1,'N')};
         double fare=invoiceGeneratorService.calculateFare(rides);
         double average=invoiceGeneratorService.averageFare(fare,rides);
         int numOfRides=invoiceGeneratorService.totalRides(rides);
@@ -40,8 +40,8 @@ public class InvoiceServiceTest {
     public void givenCustIDReturnsListOfRides()
     {
         InvoiceGeneratorService invoiceGeneratorService=new InvoiceGeneratorService();
-        Ride[] rides={new Ride("Pass1",2.0,5),new Ride("Pass2",0.1,1)
-                , new Ride("Pass1",3.4,8)};
+        Ride[] rides={new Ride("Pass1",2.0,5,'N'),new Ride("Pass2",0.1,1,'P')
+                , new Ride("Pass1",3.4,8,'P')};
         List<Ride> numOfRides=invoiceGeneratorService.numOfRides(rides,"Pass1");
         Assert.assertEquals(2,numOfRides.size());
     }

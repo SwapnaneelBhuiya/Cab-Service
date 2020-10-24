@@ -3,9 +3,9 @@ import java.util.List;
 
 public class InvoiceGeneratorService {
 
-    public static final int COST_PER_TIME=1;
-    public static final double MINIMUM_COST_PER_KILOMETER=10.0;
-    private static final double MINIMUM_FARE = 5.0;
+    public int COST_PER_TIME=1;
+    public double MINIMUM_COST_PER_KILOMETER=10.0;
+    public double MINIMUM_FARE = 5.0;
 
     public double calculateFare(double distance, int time) {
         double fare= distance*MINIMUM_COST_PER_KILOMETER + time*COST_PER_TIME;
@@ -19,6 +19,18 @@ public class InvoiceGeneratorService {
         double fare=0;
         for(Ride ob:rides)
         {
+            if(ob.category=='N')
+            {
+                COST_PER_TIME=1;
+                MINIMUM_COST_PER_KILOMETER=10.0;
+                MINIMUM_FARE = 5.0;
+            }
+            else
+            {
+                COST_PER_TIME=2;
+                MINIMUM_COST_PER_KILOMETER=15.0;
+                MINIMUM_FARE = 20.0;
+            }
             fare+=calculateFare(ob.distance,ob.time);
         }
         return fare;
