@@ -28,6 +28,8 @@ public class InvoiceServiceTest {
         int time =1;
         Ride[] rides={new Ride(2.0,5),new Ride(0.1,1)};
         double fare=invoiceGeneratorService.calculateFare(rides);
+        double average=invoiceGeneratorService.averageFare(fare,rides);
+        int numOfRides=invoiceGeneratorService.totalRides(rides);
         Assert.assertEquals(30,fare,0.0);
     }
 }

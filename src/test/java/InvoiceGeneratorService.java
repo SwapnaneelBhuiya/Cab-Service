@@ -20,4 +20,12 @@ public class InvoiceGeneratorService {
         }
         return fare;
     }
+    public double averageFare(double fare, Ride[] rides)
+    {
+        return fare/rides.length;
+    }
+    public int totalRides(Ride[] rides)
+    {
+        return rides.length;
+    }
 }
