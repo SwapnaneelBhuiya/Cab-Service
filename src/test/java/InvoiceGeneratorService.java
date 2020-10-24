@@ -12,12 +12,12 @@ public class InvoiceGeneratorService {
             return fare;
     }
 
-//    public double calculateFare(Ride[] rides) {
-//        double fare=0;
-//        for(Ride ob:rides)
-//        {
-//            fare+=calculateFare(ob.distance,ob.time);
-//        }
-//        return fare;
-//    }
+    public double calculateFare(Ride[] rides) {
+        double fare=0;
+        for(Ride ob:rides)
+        {
+            fare+=calculateFare(ob.distance,ob.time);
+        }
+        return fare;
+    }
 }
