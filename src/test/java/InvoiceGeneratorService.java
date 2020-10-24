@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class InvoiceGeneratorService {
 
     public static final int COST_PER_TIME=1;
@@ -27,5 +30,15 @@ public class InvoiceGeneratorService {
     public int totalRides(Ride[] rides)
     {
         return rides.length;
+    }
+    public List<Ride> numOfRides(Ride[] rides, String ID)
+    {
+        List<Ride> li=new ArrayList<>();
+        for(Ride ob:rides)
+        {
+            if(ob.userId.equals(ID))
+                li.add(ob);
+        }
+        return li;
     }
 }

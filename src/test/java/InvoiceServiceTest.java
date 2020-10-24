@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class InvoiceServiceTest {
     @Test
     public void give_distance_time_should_return_fare()
@@ -26,10 +28,21 @@ public class InvoiceServiceTest {
         InvoiceGeneratorService invoiceGeneratorService=new InvoiceGeneratorService();
         double distance =0.1;
         int time =1;
-        Ride[] rides={new Ride(2.0,5),new Ride(0.1,1)};
+        Ride[] rides={new Ride("Pass1",2.0,5),new Ride("Pass2",0.1,1)};
         double fare=invoiceGeneratorService.calculateFare(rides);
         double average=invoiceGeneratorService.averageFare(fare,rides);
         int numOfRides=invoiceGeneratorService.totalRides(rides);
         Assert.assertEquals(30,fare,0.0);
+        Assert.assertEquals(15,average,0.0);
+        Assert.assertEquals(2,numOfRides);
+    }
+    @Test
+    public void givenCustIDReturnsListOfRides()
+    {
+        InvoiceGeneratorService invoiceGeneratorService=new InvoiceGeneratorService();
+        Ride[] rides={new Ride("Pass1",2.0,5),new Ride("Pass2",0.1,1)
+                , new Ride("Pass1",3.4,8)};
+        List<Ride> numOfRides=invoiceGeneratorService.numOfRides(rides,"Pass1");
+        Assert.assertEquals(2,numOfRides.size());
     }
 }

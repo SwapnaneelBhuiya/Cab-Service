@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="InvoiceServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-24T05:04:27" hostname="swapnaneels-MacBook-Air.local" time="0.004">
+<testsuite name="InvoiceServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-24T06:02:18" hostname="swapnaneels-MacBook-Air.local" time="0.006">
   <properties/>
-  <testcase name="givenMultipleRides_ShouldReturnTotFare" classname="InvoiceServiceTest" time="0.004"/>
+  <testcase name="givenCustIDReturnsListOfRides" classname="InvoiceServiceTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
