@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class InvoiceServiceTest {
@@ -29,7 +30,7 @@ public class InvoiceServiceTest {
         double distance =0.1;
         int time =1;
         Ride[] rides={new Ride("Pass1",2.0,5,'N'),new Ride("Pass2",0.1,1,'N')};
-        double fare=invoiceGeneratorService.calculateFare(rides);
+        double fare=invoiceGeneratorService.calculateFare(Arrays.asList(rides));
         double average=invoiceGeneratorService.averageFare(fare,rides);
         int numOfRides=invoiceGeneratorService.totalRides(rides);
         Assert.assertEquals(30,fare,0.0);
@@ -44,5 +45,6 @@ public class InvoiceServiceTest {
                 , new Ride("Pass1",3.4,8,'P')};
         List<Ride> numOfRides=invoiceGeneratorService.numOfRides(rides,"Pass1");
         Assert.assertEquals(2,numOfRides.size());
+        double fare=invoiceGeneratorService.calculateFare(numOfRides);
     }
 }

@@ -3,9 +3,14 @@ import java.util.List;
 
 public class InvoiceGeneratorService {
 
+    private final RideRepository rideRepository;
     public int COST_PER_TIME=1;
     public double MINIMUM_COST_PER_KILOMETER=10.0;
     public double MINIMUM_FARE = 5.0;
+
+    public InvoiceGeneratorService() {
+        this.rideRepository=new RideRepository();
+    }
 
     public double calculateFare(double distance, int time) {
         double fare= distance*MINIMUM_COST_PER_KILOMETER + time*COST_PER_TIME;
@@ -14,8 +19,7 @@ public class InvoiceGeneratorService {
         }
             return fare;
     }
-
-    public double calculateFare(Ride[] rides) {
+    public double calculateFare(List<Ride> rides) {
         double fare=0;
         for(Ride ob:rides)
         {
